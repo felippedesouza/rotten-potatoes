@@ -33,13 +33,13 @@
 
 1. crie um cluster na digital ocean (não esqueça de remover quando não for usar)
 
-[](./img/img-1.png)
-[](./img/img-2.png)
-[](./img/img-3.png)
+![](./img/img-1.png)
+![](./img/img-2.png)
+![](./img/img-3.png)
 
 espere o cluster ser criado e faça download do config file
 
-[](./img/img-4.png)
+![](./img/img-4.png)
 
 `cp iniciativa-k8s-kubeconfig.yaml ~/.kube/config`
 copie o kube config
