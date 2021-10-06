@@ -27,14 +27,28 @@
 
 ## Com CI/CD e Digital Ocean
 
-cp iniciativa-k8s-kubeconfig.yaml ~/.kube/config
+1. faça um fork do repositório
 
-crie um cluster na digital ocean
+### Crie um cluster na Digital Ocean e configure
+
+1. crie um cluster na digital ocean (não esqueça de remover quando não for usar)
+
+[](./img/img-1.png)
+[](./img/img-2.png)
+[](./img/img-3.png)
+
+espere o cluster ser criado e faça download do config file
+
+[](./img/img-4.png)
+
+`cp iniciativa-k8s-kubeconfig.yaml ~/.kube/config`
 copie o kube config
 cole na pasta .kube/config
+
 crie um secrets no github com chave K8S_CONFIG e no valor cole o kubeconfig da digital ocean
 faça um push do app pro github
-rode `watch kubectl get all` e espere aparce um ip publico
+rode `watch 'kubectl get all'` e espere aparce um ip publico
 quando aparecer coloque o ip publico na url do navegador e rode o site
 
 mude o nome da pasta de `github-example` para `.github`
+`git push origin main`
