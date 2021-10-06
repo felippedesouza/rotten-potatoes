@@ -22,6 +22,7 @@ spec:
               value: mongopwd
             - name: MONGO_INITDB_ROOT_USERNAME
               value: mongouser
+
 ---
 # Service do MongoDB
 apiVersion: v1
@@ -34,6 +35,7 @@ spec:
   ports:
     - port: 27017
   type: ClusterIP
+
 ---
 # Deployment da aplicação web
 apiVersion: apps/v1
@@ -67,6 +69,7 @@ spec:
               value: "mongouser"
             - name: MONGODB_PASSWORD
               value: "mongopwd"
+
 ---
 # Service da aplicação web
 apiVersion: v1
@@ -81,4 +84,4 @@ spec:
       # vai bater na porta 80 do service, mas vai ser redirecionado pra porta 5000 do container
       targetPort: 5000
       nodePort: 30000
-  type: NodePort
+  type: LoadBalancer

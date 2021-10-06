@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  web:
+    restart: always
+    build: .
+    environment: 
+      - MONGODB_DB=admin
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+      - MONGODB_USERNAME=mongouser
+      - MONGODB_PASSWORD=mongopwd
+    volumes:
+      - .:/app
+    ports: 
+      - 8080:5000
+    depends_on:
+      - mongodb
+
+  mongodb:
+    restart: always
+    image: mongo:4.4.6
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=mongouser
+      - MONGO_INITDB_ROOT_PASSWORD=mongopwd
+    volumes:
+      - ./.data:/data/db
+    ports:
+      - 27017
