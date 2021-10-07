@@ -25,14 +25,7 @@ Infra desenvolvida no evento Iniciativa Kubernetes
 1. `cd rotten-potatoes/`
 1. `kind create cluster --name meucluster --config cluster.yaml`
 1. `kubectl apply -f ./k8s/deployment.yaml` (`kubectl delete -f ./k8s/deployment.yaml` para remover tudo que foi feito)
-1. `docker container ls`, copie o container-id do container worker
-![](./img/img-5.png)
-![](./img/img-6.png)
-1. `docker inspect ad0e64c65206`, copie IPAddress
-![](./img/img-7.png)
-1. `kubectl get services`, copie a porta do service web
-![](./img/img-8.png)
-1. abra o navegador cole a url `172.23.0.2:30000`
+1. abra o navegador cole a url `localhost:8080`
 
 ## Com CI/CD e Digital Ocean
 
