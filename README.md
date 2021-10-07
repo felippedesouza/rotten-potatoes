@@ -53,5 +53,11 @@
 ![](./img/img-14.png)
 1. `mv github-example .github`: para o GitHub ler o pipeline e executar
 1. `git push origin main`
-1. `watch 'kubectl get all'` e copie o ip publico
+1. vá ate o Actions do GitHub e espere a pipeline terminar
+![](./img/img-15.png)
+![](./img/img-16.png)
+![](./img/img-17.png)
+![](./img/img-18.png)
+1. quando terminar, execute o código `watch 'kubectl get all'` e copie o ip publico
+![](./img/img-19.png)
 1. url do navegador `143.244.200.48`

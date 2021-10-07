@@ -84,4 +84,4 @@ spec:
       # vai bater na porta 80 do service, mas vai ser redirecionado pra porta 5000 do container
       targetPort: 5000
       nodePort: 30000
-  type: LoadBalancer
+  type: NodePort
