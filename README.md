@@ -1,6 +1,8 @@
 # Rotten Potatoes
 
-> Base de dados usado: https://github.com/KubeDev/rotten-potatoes
+Infra desenvolvida no evento Iniciativa Kubernetes
+
+**Crie sua conta no DockerHub, depois pegue seu username e mude em todos os arquivos do app. Por exemplo de `felippedeiro/rotten-potatoes` para `<seu-username>/rotten-potatoes`. Os arquivos que terão que ser modificado são: 'k8s/deployment.yaml', 'github/workflows/main.yml'**
 
 ## Com Docker Compose
 
@@ -12,11 +14,11 @@
 
 ### Subindo imagem pro Docker Hub
 
-1. `docker image build -t <seu-username-docker-hub>/rotten-potatoes:v1 ./src`
 1. `docker login`
-1. `docker push <seu-username-docker-hub>/rotten-potatoes:v1`
-1. `docker tag <seu-username-docker-hub>/rotten-potatoes:v1 <seu-username-docker-hub>/rotten-potatoes:latest`
-1. `docker push <seu-username-docker-hub>/rotten-potatoes:latest`
+1. `docker image build -t felippedeiro/rotten-potatoes:v1 ./src`
+1. `docker push felippedeiro/rotten-potatoes:v1`
+1. `docker tag felippedeiro/rotten-potatoes:v1 felippedeiro/rotten-potatoes:latest`
+1. `docker push felippedeiro/rotten-potatoes:latest`
 
 ### Iniciando Kubernetes
 

@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: deployment-mongodb
 spec:
   selector:
     matchLabels:
@@ -13,7 +13,7 @@ spec:
         app: mongodb
     spec:
       containers:
-        - name: mongodb
+        - name: container-mongodb
           image: mongo:4.4.6
           ports:
             - containerPort: 27017
@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: service-mongodb
 spec:
   selector:
     app: mongodb
@@ -41,7 +41,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: deployment-app
 spec:
   replicas: 1
   selector:
@@ -53,10 +53,10 @@ spec:
         app: web
     spec:
       containers:
-        - name: web
+        - name: container-app
           image: felippedeiro/rotten-potatoes:v1
           ports:
-            - containerPort: 5000
+            - containerPort: 5000 # porta que o app pode ser acessado dentro do container
           env:
             - name: MONGODB_DB
               value: "admin"
@@ -75,13 +75,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: service-app
 spec:
   selector:
     app: web
   ports:
-    - port: 80
-      # vai bater na porta 80 do service, mas vai ser redirecionado pra porta 5000 do container
-      targetPort: 5000
-      nodePort: 30000
+    - nodePort: 30000 # 'nodePort' é a porta de entrada para o acesso a aplicacao. o service envia o tráfego recebido em 'nodePort' e encaminha para a porta que o service está escutando, 'port'.
+      port: 80 # o service redireciona o tráfego recebido em 'Port' para 'targetPort', que é a porta onde o conteiner expos a aplicacao.
+      targetPort: 5000 # porta que os containers irao escutar
   type: NodePort
