@@ -53,5 +53,5 @@
 ![](./img/img-14.png)
 1. `mv github-example .github`: para o GitHub ler o pipeline e executar
 1. `git push origin main`
-1. `watch 'kubectl get all'` e espere aparce um ip publico
-1. quando aparecer coloque o ip publico na url do navegador
+1. `watch 'kubectl get all'` e copie o ip publico
+1. url do navegador `143.244.200.48`
