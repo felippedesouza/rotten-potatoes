@@ -4,8 +4,8 @@ __pycache__/
 *$py.class
 
 src/.data
+k8s-iniciativa-kubernetes-kubeconfig.yaml
 
-rotten-potatoes/
 *.Identifier
 # C extensions
 *.so
