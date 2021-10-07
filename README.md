@@ -60,4 +60,4 @@
 ![](./img/img-18.png)
 1. quando terminar, execute o código `watch 'kubectl get all'` e copie o ip publico
 ![](./img/img-19.png)
-1. url do navegador `143.244.200.48`
+1. cole na url do navegador `143.244.200.48`
