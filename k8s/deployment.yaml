@@ -83,4 +83,4 @@ spec:
     - nodePort: 30000 # 'nodePort' é a porta de entrada para o acesso a aplicacao. o service envia o tráfego recebido em 'nodePort' e encaminha para a porta que o service está escutando, 'port'.
       port: 80 # o service redireciona o tráfego recebido em 'Port' para 'targetPort', que é a porta onde o conteiner expos a aplicacao.
       targetPort: 5000 # porta que os containers irao escutar
-  type: LoadBalancer
+  type: NodePort
