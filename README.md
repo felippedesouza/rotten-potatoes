@@ -103,7 +103,7 @@ Infra desenvolvida no evento Iniciativa Kubernetes
 1. `cd ..`
 1. mude o type do deployment da api para LoadBalancer
 1. `kubectl apply -f ./k8s/deployment.yaml`
-1. `watch 'kubectl get all'`, quando terminar a criação da aplicação no cluster, coloque a url `localhost:8080`
+1. `watch 'kubectl get all'`, quando terminar a criação da aplicação no cluster, coloque a url externa do LoadBalancer no navegador
 
 ## Usando Helm
 
