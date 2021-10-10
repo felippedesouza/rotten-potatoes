@@ -13,15 +13,15 @@ spec:
         app: mongodb
     spec:
       containers:
-        - name: container-mongodb
-          image: mongo:4.4.6
-          ports:
-            - containerPort: 27017
-          env:
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              value: mongopwd
-            - name: MONGO_INITDB_ROOT_USERNAME
-              value: mongouser
+      - name: container-mongodb
+        image: mongo:4.4.6
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: mongopwd
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: mongouser
 
 ---
 # Service do MongoDB
@@ -33,7 +33,7 @@ spec:
   selector:
     app: mongodb
   ports:
-    - port: 27017
+  - port: 27017
   type: ClusterIP
 
 ---
@@ -42,6 +42,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-app
+  labels:
+    app: web
 spec:
   replicas: 1
   selector:
@@ -53,22 +55,21 @@ spec:
         app: web
     spec:
       containers:
-        - name: container-app
-          image: felippedeiro/rotten-potatoes:v1
-          ports:
-            - containerPort: 5000 # porta que o app pode ser acessado dentro do container
-          env:
-            - name: MONGODB_DB
-              value: "admin"
-              # host é o mesmo nome do service
-            - name: MONGODB_HOST
-              value: mongodb
-            - name: MONGODB_PORT
-              value: "27017"
-            - name: MONGODB_USERNAME
-              value: "mongouser"
-            - name: MONGODB_PASSWORD
-              value: "mongopwd"
+      - name: container-app
+        image: felippedeiro/rotten-potatoes:v1
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGODB_DB
+          value: "admin"
+        - name: MONGODB_HOST
+          value: service-mongodb
+        - name: MONGODB_PORT
+          value: "27017"
+        - name: MONGODB_USERNAME
+          value: "mongouser"
+        - name: MONGODB_PASSWORD
+          value: "mongopwd"
 
 ---
 # Service da aplicação web
@@ -80,7 +81,8 @@ spec:
   selector:
     app: web
   ports:
-    - nodePort: 30000 # 'nodePort' é a porta de entrada para o acesso a aplicacao. o service envia o tráfego recebido em 'nodePort' e encaminha para a porta que o service está escutando, 'port'.
-      port: 80 # o service redireciona o tráfego recebido em 'Port' para 'targetPort', que é a porta onde o conteiner expos a aplicacao.
-      targetPort: 5000 # porta que os containers irao escutar
+  - protocol: TCP
+    nodePort: 30000 
+    port: 80 
+    targetPort: 5000 
   type: NodePort
