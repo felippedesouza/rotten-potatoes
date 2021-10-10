@@ -1,4 +1,4 @@
 kube_config
-./terraform.tfvars
+terraform.tfvars
 .terraform/
 .terraform.lock.hcl
