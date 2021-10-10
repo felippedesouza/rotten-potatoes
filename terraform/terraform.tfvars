@@ -1,2 +1,0 @@
-digital_ocean_token = "549a054ff9420a5c43e2fe3a3f0673935e97e133e00bdda4930758d2c1e97312"
-nome_k8s = "meucluster"
