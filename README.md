@@ -6,13 +6,26 @@ Infra desenvolvida no evento Iniciativa Kubernetes
 
 **Crie sua conta no DockerHub, depois pegue seu username e mude em todos os arquivos do app. Por exemplo de `felippedeiro/rotten-potatoes` para `<seu-username>/rotten-potatoes`. Os arquivos que terão que ser modificado são: 'k8s/deployment.yaml', 'github/workflows/main.yml'**
 
+## Conteudos
+
+- [Usando Docker Compose](#usando-docker-compose)
+- [Usando Kubernetes](#usando-kubernetes)
+- [Usando CI/CD e Digital Ocean](#usando-cicd-e-digital-ocean)
+- [Usando Helm](#usando-helm)
+- [Usando Terraform](#usando-terraform)
+
+
 ## Usando Docker Compose
+
+[Voltar pra conteudos](#conteudos)
 
 1. `cd rotten-potatoes/src`
 1. `docker compose up --build` (`ctrl+c` para parar e sair do container, `docker-compose down` para remover os containers)
 1. quando terminar de iniciar os containers,abra o navegador cole a url `localhost:8080`
 
 ## Usando Kubernetes
+
+[Voltar pra conteudos](#conteudos)
 
 ### Subindo imagem pro Docker Hub
 
@@ -30,6 +43,8 @@ Infra desenvolvida no evento Iniciativa Kubernetes
 1. abra o navegador cole a url `localhost:8080`
 
 ## Usando CI/CD e Digital Ocean
+
+[Voltar pra conteudos](#conteudos)
 
 1. faça um fork do repositório
 1. crie um cluster na digital ocean (não esqueça de remover quando não for usar)
@@ -75,6 +90,8 @@ Infra desenvolvida no evento Iniciativa Kubernetes
 
 ## Usando Terraform
 
+[Voltar pra conteudos](#conteudos)
+
 [Acesse o repositório do terraform para entender como configurar](https://github.com/felippedesouza/iniciativa-kubernetes-2021-09/tree/main/bonus-2-terraform)
 
 1. `cd /terraform`
@@ -89,6 +106,8 @@ Infra desenvolvida no evento Iniciativa Kubernetes
 1. `watch 'kubectl get all'`, quando terminar a criação da aplicação no cluster, coloque a url `localhost:8080`
 
 ## Usando Helm
+
+[Voltar pra conteudos](#conteudos)
 
 [Acesse o repositório do helm para entender como configurar](https://github.com/felippedesouza/iniciativa-kubernetes-2021-09/tree/main/bonus-3-helm)
 
