@@ -50,8 +50,8 @@ jobs:
     needs: [Terraform]
     runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
       
   #     - name: Docker Login
   #       uses: docker/login-action@v1.10.0
