@@ -9,17 +9,17 @@ terraform {
 }
 
 #variavel para o token nao ficar exposto num arquivo compartilhavel
-variable "digital_ocean_token" {}
-variable "nome_k8s" {}
+variable "DIGITAL_OCEAN_TOKEN" {}
+variable "NOME_K8S" {}
 
 #declaracao do provider
 provider "digitalocean" {
-  token = var.digital_ocean_token
+  token = var.DIGITAL_OCEAN_TOKEN
 }
 
 #declarar a infraestrutura, criar um recurso no servico
 resource "digitalocean_kubernetes_cluster" "k8s" {
-  name = var.nome_k8s
+  name = var.NOME_K8S
   region = "nyc1"
   version = "1.21.3-do.0"
 

@@ -1,2 +1,2 @@
-digital_ocean_token = ""
-nome_k8s = "meucluster"
+DIGITAL_OCEAN_TOKEN = ""
+NOME_K8S = "meucluster"
