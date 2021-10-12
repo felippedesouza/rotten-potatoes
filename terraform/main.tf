@@ -6,14 +6,6 @@ terraform {
       version = "~> 2.0"
     }
   }
-
-  backend "remote" {
-    organization = "felippedeiro"
-
-    workspaces {
-      name = "rotten-potatoes"
-    }
-  }
 }
 
 #variavel para o token nao ficar exposto num arquivo compartilhavel
