@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  terraform:
+  Terraform:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,9 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: |
+          cd terraform
+          terraform init
 
       - name: Terraform Validate
         id: validate
@@ -44,8 +46,9 @@ jobs:
         # if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
 
-  # CI:
-  #   runs-on: ubuntu-latest
+  CI:
+    needs: [Terraform]
+    runs-on: ubuntu-latest
 
   #   steps:
   #     - uses: actions/checkout@v2
