@@ -10,6 +10,10 @@ jobs:
   Terraform:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: 'cd terraform'
+
     steps:
       - uses: actions/checkout@v2
 
@@ -24,9 +28,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: |
-          cd terraform
-          terraform init
+        run: terraform init
 
       - name: Terraform Validate
         id: validate
@@ -70,7 +72,7 @@ jobs:
 #             felippedeiro/rotten-potatoes:${{ github.run_number }}
 
   CD:
-    # needs: [CI]
+    needs: [CI]
     runs-on: ubuntu-latest
 
     steps:
