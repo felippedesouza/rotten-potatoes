@@ -13,17 +13,17 @@ jobs:
 #     steps:
       
     
-  CI:
-    runs-on: ubuntu-latest
+  # CI:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
       
-      - name: Docker Login
-        uses: docker/login-action@v1.10.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PWD }}
+  #     - name: Docker Login
+  #       uses: docker/login-action@v1.10.0
+  #       with:
+  #         username: ${{ secrets.DOCKERHUB_USER }}
+  #         password: ${{ secrets.DOCKERHUB_PWD }}
           
 #       - name: Docker Build and Push
 #         uses: docker/build-push-action@v2.7.0
@@ -36,7 +36,7 @@ jobs:
 #             felippedeiro/rotten-potatoes:${{ github.run_number }}
 
   CD:
-    needs: [CI]
+    # needs: [CI]
     runs-on: ubuntu-latest
 
     steps:
@@ -58,8 +58,8 @@ jobs:
       - name: Deploy to Kubernetes cluster
         uses: 'deliverybot/helm@master'
         with:
-          release: ${{ github.run_number }}
-          namespace: 'default'
+          release: 'nginx'
+          namespace: 'meucluster'
           token: '${{ github.token }}'
           chart: 'helm'
         env:
