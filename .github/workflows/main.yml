@@ -60,6 +60,10 @@ jobs:
         with:
           helm: helm3
           release: 'app'
+          value-files: >-
+            [
+              "values.yaml"
+            ]
           namespace: 'default' #default ou kube-system
           token: '${{ github.token }}'
           chart: 'helm'
