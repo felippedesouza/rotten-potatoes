@@ -60,6 +60,7 @@ jobs:
         with:
           helm: helm3
           release: 'app'
+          dry-run: true
           value-files: >-
             [
               "./helm/values.yaml",
@@ -67,7 +68,7 @@ jobs:
             ]
           namespace: 'default' #default ou kube-system
           token: '${{ github.token }}'
-          chart: './helm'
+          chart: './helm/'
         env:
           KUBECONFIG_FILE: '${{ secrets.K8S_CONFIG }}'
 #           KUBECONFIG_FILE: | 
