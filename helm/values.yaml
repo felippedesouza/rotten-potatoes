@@ -7,5 +7,5 @@ web:
   imageName: felippedeiro/rotten-potatoes
   imageTag: v1
   service:
-    type: NodePort
-    nodePort: 
+    type: LoadBalancer
+    # nodePort: 
