@@ -36,17 +36,17 @@ jobs:
           cd terraform 
           terraform validate -no-color
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   # if: github.event_name == 'pull_request'
-      #   run: |
-      #     cd terraform 
-      #     terraform plan -no-color
-      #   continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        # if: github.event_name == 'pull_request'
+        run: |
+          cd terraform 
+          terraform plan -no-color
+        continue-on-error: true
 
-      # - name: Terraform Plan Status
-      #   if: steps.plan.outcome == 'failure'
-      #   run: exit 1
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
 
       - name: Terraform Apply
         # if: github.ref == 'refs/heads/main' && github.event_name == 'push'
