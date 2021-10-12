@@ -62,7 +62,8 @@ jobs:
           release: 'app'
           value-files: >-
             [
-              "./helm/values.yaml"
+              "./helm/values.yaml",
+              "./helm/values-release.yaml"
             ]
           namespace: 'default' #default ou kube-system
           token: '${{ github.token }}'

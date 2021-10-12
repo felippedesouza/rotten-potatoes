@@ -1,4 +1,4 @@
 web:
   service:
-    # type: LoadBalancer
-    nodePort: 30000
+    type: LoadBalancer
+    # nodePort: 30000
