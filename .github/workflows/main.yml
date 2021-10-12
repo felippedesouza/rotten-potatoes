@@ -56,10 +56,11 @@ jobs:
 #             k8s/deployment.yaml
             
       - name: Deploy to Kubernetes cluster
-        uses: 'deliverybot/helm@master'
+        uses: 'deliverybot/helm@v1'
         with:
-          release: 'nginx'
-          namespace: 'meucluster'
+          helm: helm3
+          release: 'app'
+          namespace: 'default' #default ou kube-system
           token: '${{ github.token }}'
           chart: 'helm'
         env:
