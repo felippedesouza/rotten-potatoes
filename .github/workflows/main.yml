@@ -10,10 +10,6 @@ jobs:
   Terraform:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: 'cd terraform'
-
     steps:
       - uses: actions/checkout@v2
 
@@ -24,7 +20,7 @@ jobs:
       
       - name: Terraform Format
         id: fmt
-        run: terraform fmt -check
+        run: cd terraform && terraform fmt -check
 
       - name: Terraform Init
         id: init
