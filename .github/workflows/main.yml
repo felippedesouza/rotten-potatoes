@@ -62,13 +62,13 @@ jobs:
           release: 'app'
           value-files: >-
             [
-              "values.yaml"
+              "./helm/values.yaml"
             ]
           namespace: 'default' #default ou kube-system
           token: '${{ github.token }}'
-          chart: 'helm'
+          chart: './helm'
         env:
+          KUBECONFIG_FILE: '${{ secrets.K8S_CONFIG }}'
 #           KUBECONFIG_FILE: | 
 #             terraform/kube_config
-          KUBECONFIG_FILE: '${{ secrets.K8S_CONFIG }}'
  
